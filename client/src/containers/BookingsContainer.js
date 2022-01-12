@@ -32,12 +32,15 @@ const BookingsContainer = () => {
     
             temp.splice(indexToDel, 1);
             setBookings(temp);
-            
+
     }
 
     const updateBookingState = (id, update) => {
-
         
+        // const temp = bookings.map(b => b);
+        // const indexToUpdate = temp.map(b => b._id).indexOf(id);
+        // temp.updateOne(indexToUpdate, {$set: update});
+        // temp[indexToUpdate] = update()
 
     }
 

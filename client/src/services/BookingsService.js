@@ -23,7 +23,7 @@ export const deleteBooking = (id) => {
 
 export const updateBookingDB = (id, payload) => {
     return fetch(baseURL + id, {
-        method: 'POST',
+        method: 'PUT',
         body: JSON.stringify(payload),
         headers: {'Content-Type': 'application/json'}
     })
