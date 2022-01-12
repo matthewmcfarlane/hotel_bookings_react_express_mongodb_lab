@@ -3,7 +3,7 @@ const ObjectID = require('mongodb').ObjectID;
 
 const createRouter = function (colletion) {
 
-  const router = express.router();
+  const router = express.Router();
 
   router.get('/', (req, res) => {
     collection.find()
