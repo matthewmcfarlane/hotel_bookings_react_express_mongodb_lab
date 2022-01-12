@@ -1,7 +1,7 @@
 import { deleteBooking } from "../services/BookingsService";
+import { updateBookingDB } from "../services/BookingsService";
 
-
-const BookingItem = ({booking, removeBooking}) => {
+const BookingItem = ({booking, removeBooking, updateBookingState}) => {
 
     const handleDelete = () => {
         deleteBooking(booking._id).then(() => {
@@ -10,12 +10,18 @@ const BookingItem = ({booking, removeBooking}) => {
 
     }
 
+    const handleUpdateCheckIn = () => {
+        updateBookingDB(booking._id).then(() => {
+            updateBookingState(booking._id)
+        })
+    }
     return ( 
         <li>
-        { booking.name }
-        { booking.email }
-        { booking.checkIn }
+        <p>{ booking.name }</p>
+        <p>{ booking.email }</p>
+        { booking.checkIn ? <p> Checked In</p> : <p>Checked Out</p>}
         <button onClick={handleDelete}>🗑</button>
+        <hr />
         </li>
      );
 }

@@ -35,11 +35,17 @@ const BookingsContainer = () => {
             
     }
 
+    const updateBookingState = (id, update) => {
+
+        
+
+    }
+
     return ( 
         <>
             <h2>Bookings Container</h2>
             <BookingForm createBooking={createBooking} />
-            <BookingList bookings={bookings} removeBooking={removeBooking}/>
+            <BookingList bookings={bookings} removeBooking={removeBooking} updateBookingState={updateBookingState}/>
         </>
      );
 }

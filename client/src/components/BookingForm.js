@@ -4,12 +4,12 @@ const BookingForm = ({createBooking}) => {
 
     const[name, setName] = useState('')
     const[email, setEmail] = useState('')
-    const[checkIn, setCheckIn] = useState('')
+    const[checkIn, setCheckIn] = useState(false)
 
 
     const handleNameChange = event => setName(event.target.value);
     const handleEmailChange = event => setEmail(event.target.value);
-    const handleCheckInChange = event => setCheckIn(event.target.value);
+    const handleCheckInChange = event => setCheckIn(event.target.checked)
     
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -42,14 +42,7 @@ const BookingForm = ({createBooking}) => {
                 required />
 
         <label htmlFor="check-in">Checked In?</label>
-        <select name="check-in"
-                id="check-in"
-                value={checkIn}
-                onChange={handleCheckInChange}>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-
+        <input type="checkbox" name="check-in" id="check-in" value={checkIn} onChange={handleCheckInChange}/>
             <input type="submit" name="submit" value="Save" />
         </form>
      );
