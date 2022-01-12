@@ -19,11 +19,27 @@ const BookingsContainer = () => {
         .then(savedBooking => setBookings([...bookings, savedBooking]))
     }
 
+    // const addBooking = (booking) => {
+    //     const temp = bookings.map(b => b);
+    //     temp.push(booking);
+    //     setBookings(temp);
+    // }
+
+    const removeBooking = (id) => {
+
+            const temp = bookings.map(b => b);
+            const indexToDel = temp.map(b => b._id).indexOf(id);
+    
+            temp.splice(indexToDel, 1);
+            setBookings(temp);
+            
+    }
+
     return ( 
         <>
             <h2>Bookings Container</h2>
             <BookingForm createBooking={createBooking} />
-            <BookingList bookings={bookings}/>
+            <BookingList bookings={bookings} removeBooking={removeBooking}/>
         </>
      );
 }

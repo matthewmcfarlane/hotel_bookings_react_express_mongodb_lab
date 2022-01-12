@@ -1,7 +1,7 @@
 const express = require('express');
 const ObjectID = require('mongodb').ObjectID;
 
-const createRouter = function (colletion) {
+const createRouter = function (collection) {
 
   const router = express.Router();
 
@@ -28,6 +28,19 @@ const createRouter = function (colletion) {
       res.status(500)
       res.json({status: 500, error: err})
     })
+  })
+
+  router.delete('/:id', (req, res) => {
+
+    const id = req.params.id
+
+    collection.deleteOne({_id: ObjectID(id)})
+    .then(result => {res.json(result)})
+    .catch((err) => {
+      console.error(err);
+      res.status(500);
+      res.json({ status: 500, error: err });
+    });
   })
 
   return router;

@@ -1,11 +1,22 @@
+import { deleteBooking } from "../services/BookingsService";
 
 
-const BookingItem = ({booking}) => {
+const BookingItem = ({booking, removeBooking}) => {
+
+    const handleDelete = () => {
+        deleteBooking(booking._id).then(() => {
+            removeBooking(booking._id)
+        })
+
+    }
 
     return ( 
-        <li>{ booking.name }
+        <li>
+        { booking.name }
         { booking.email }
-        { booking.checkIn }</li>
+        { booking.checkIn }
+        <button onClick={handleDelete}>🗑</button>
+        </li>
      );
 }
  
