@@ -46,13 +46,11 @@ const BookingForm = ({createBooking}) => {
                 id="check-in"
                 value={checkIn}
                 onChange={handleCheckInChange}>
-
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
 
             <input type="submit" name="submit" value="Save" />
-
         </form>
      );
 }
