@@ -1,11 +1,11 @@
+const MongoClient = require('mongodb').MongoClient;
+const createRouter = require('./helpers/create_router.js');
 const express = require('express');
 const app = express();
 
 const cors = require('cors');
 app.use(cors());
 
-const MongoClient = require('mongodb').MongoClient;
-const createRouter = require('./helpers/create_router.js');
 
 app.use(express.json());
 
